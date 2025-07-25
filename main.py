@@ -56,18 +56,19 @@ def datos():
 
 def area_triangulo(a, b):
     area = a * b / 2
-    print(f"El area del triangulo es de: {area}")
+    return area
+
 
 def perimetro_triangulo(a, b, c):
     perimeter = a + b + c
-    print(f"El perimetro del triangulo es de: {perimeter}")
+    return perimeter
 
 def n_primo():
     a = int(input("Ingresar un numero: "))
     if a % 2 == 0:
-        print("El numero no es primo")
+        print(f"El numero {a} no es primo")
     else:
-        print("El numero es primo")
+        print(f"El numero {a} es primo")
 
 def promedio():
     promedio = []
@@ -141,6 +142,9 @@ def mayor_menor():
                 print(f"El numero mayo es de: {max(numeros)}\n"
                       f"El numero menor es de: {min(numeros)}\n"
                       f"Numeros que se repiten: {frecuencia}\n")
+            case "3":
+                print("Regresando al menu")
+                break
 
 
 def calcular():
@@ -173,13 +177,51 @@ def calcular():
                 d1 = int(input("Ingresar primer numero: "))
                 d2 = int(input("Ingresar segundo numero: "))
                 print(f"La division de {d1} / {d2} es = {d1 / d2}")
+            case "5":
+                print("Regresando al menu")
+                break
 
 while True:
-    print("Bienvenido al programa de calculos basicos\n"
+    print("--Bienvenido al programa de calculos basicos--\n"
           "1. Ingresar numero\n"
           "2. Calcular area y perimetro\n"
           "3. Verificar si el numero es primo\n"
           "4. Promedio\n"
-          "5. sdf\n"
-          "6. Calculadora basica"
+          "5. conocer numero mayor y menor\n"
+          "6. Calculadora basica\n"
           "7. Salir")
+    main_select = input("Seleccione una opcion: ")
+    match main_select:
+        case "1":
+            datos()
+        case "2":
+            print("1. Area de triangulo\n"
+                  "2. Perimetro de triangulo")
+            triangulo = input("Seleccione una opcion: ")
+            match triangulo:
+                case "1":
+                    a = int(input("Ingresar base del triangulo: "))
+                    b = int(input("Ingresar altura del triangulo: "))
+                    print(f"El area del triangulo es: {area_triangulo(a, b)}")
+                case "2":
+                    a = int(input("Ingresar lado 1 del triangulo: "))
+                    b = int(input("Ingresar lado 2 del triangulo: "))
+                    c = int(input("Ingresar lado 3 del triangulo: "))
+                    print(f"El perimetro del triangulo es: {perimetro_triangulo(a, b, c)}")
+                case _:
+                    print("Ingrese una opcion valida")
+        case "3":
+            n_primo()
+        case "4":
+            promedio()
+        case "5":
+            mayor_menor()
+        case "6":
+            calcular()
+        case "7":
+            print("Saliendo del programa")
+            break
+
+
+
+
