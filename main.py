@@ -109,6 +109,40 @@ def promedio():
             case _:
                 print("opcion no valida")
 
+def mayor_menor():
+    numeros = []
+    while True:
+        print("1. Ingresar numero\n"
+              "2. ver resultados\n"
+              "3. regresar al menu\n")
+        select_numero = input("Seleccione una opcion: ")
+        match select_numero:
+            case "1":
+                while True:
+                    print("1. Ingresar numero\n"
+                          "2. regresar al menu\n")
+                    select1 = input("Seleccione una opcion: ")
+                    match select1:
+                        case "1":
+                            n = input("Ingresar numero: ")
+                            numeros.append(n)
+                        case "2":
+                            print("Regresando al menu")
+                            break
+                        case _:
+                            print("Opcion invalida")
+            case "2":
+                frecuencia = 0
+                for i in numeros:
+                    if i == i:
+                        frecuencia += 1
+                    else:
+                        pass
+                print(f"El numero mayo es de: {max(numeros)}\n"
+                      f"El numero menor es de: {min(numeros)}\n"
+                      f"Numeros que se repiten: {frecuencia}\n")
+
+
 def calcular():
     while True:
         print("----Bienvenido a la calculadora de operaciones basicas----\n"
@@ -141,3 +175,11 @@ def calcular():
                 print(f"La division de {d1} / {d2} es = {d1 / d2}")
 
 while True:
+    print("Bienvenido al programa de calculos basicos\n"
+          "1. Ingresar numero\n"
+          "2. Calcular area y perimetro\n"
+          "3. Verificar si el numero es primo\n"
+          "4. Promedio\n"
+          "5. sdf\n"
+          "6. Calculadora basica"
+          "7. Salir")
